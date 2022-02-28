@@ -15,7 +15,6 @@ body{
 main{
     width: 1350px;
     height: 90vh;
-    background-color: azure;
     display: flex;
 }
 
@@ -24,6 +23,7 @@ main{
     height: 100%;
     display: flex;
     flex-direction: column;
+    border-right: 2px solid lightgrey;
 }
 
 .chat-content{
@@ -31,14 +31,13 @@ main{
     height: 100%;
 }
 
-.sidebar_top-side{
+.sidebar_top-side , .chat-content_top-side{
     height: 60px;
     width: 100%;
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FAFAFA;
+    background-color: #fdfdfd;
 }
 
 .user-profile{
@@ -64,7 +63,7 @@ main{
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-right: 8px;
+    margin-right: 12px;
     color: rgba(128, 128, 128, 0.7);
 }
 
@@ -109,7 +108,7 @@ main{
 .chat-wrapper{
     flex-grow: 1;
     padding-top: 7px;
-    background-color: #FAFAFA;
+    background-color: #fdfdfd;
 }
 
 .input-wrapper{
@@ -135,7 +134,6 @@ main{
 
 .chat-user{
 display: flex;
-align-items: center;
 gap: 15px;
 }
 
@@ -145,4 +143,67 @@ gap: 15px;
 
 .date{
     align-self: flex-start;
+    padding-top: 12px;
+    padding-right: 5px;
+}
+
+.chat-content{
+    display: flex;
+    flex-direction: column;
+}
+.message-wrapper{
+    background: #E5DDD5;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    gap:8px;
+}
+
+.input-message{
+    height: 70px;
+    background-color: #F3EEEA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-message input{
+    width: 85%;
+    padding: 10px 20px;
+    border: none;
+}
+
+.input-message i{
+    color: #6A7376;
+    font-size: 18px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.sent{
+    background-color: #D5F9BA;
+    align-self: flex-end;
+}
+
+.received{
+    background-color: white;
+}
+
+.message{
+    width: 300px;
+    height: 60px;
+    border-radius: 10px;
+    position: relative;
+    padding: 8px;
+}
+
+.message span{
+    position: absolute;
+    bottom: 4px;
+    right: 5px;
+}
+
+.message p{
+    font-size: 14px;
 }
