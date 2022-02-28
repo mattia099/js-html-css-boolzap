@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Boolzap</title>
+</head>
+<body>
+    
+    <main id="app">
+        <div class="sidebar">
+            <div class="sidebar_top-side">
+                <div class="user-profile">
+                    <img src="https://picsum.photos/45/45" class="profile-img" >
+                    <span class="profile-text">Mattia</span>
+                </div>
+                <div class="icon-wrapper">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            <div class="notifica bg-notifica">
+                <div class="icon-circle">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+                <div>
+                    <p class="profile-text">Ricevi notifiche di nuovi utenti</p>
+                    <a class="sm-gray" href="">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            
+            <div class="chat-wrapper">
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="chat-search">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <div class="chat" v-for="(el,index) in contacts">
+                    <div class="chat-user">
+                        <img src="https://picsum.photos/45/45" class="profile-img">
+                        <div>
+                            <p class="profile-text">{{ el.name }}</p>
+                            <p class="sm-gray">ultimo messaggio</p>
+                        </div>  
+                    </div>        
+                    <p class="date sm-gray">28/02/2022 12:07</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-content">
+
+        </div>
+
+
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

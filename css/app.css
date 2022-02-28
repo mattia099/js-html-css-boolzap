@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{font-family: Arial, Helvetica, sans-serif;}
+body{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #469689 15%, #D5DBD9 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 1350px;
+    height: 90vh;
+    background-color: azure;
+    display: flex;
+}
+
+.sidebar{
+    width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-content{
+    flex-grow: 1;
+    height: 100%;
+}
+
+.sidebar_top-side{
+    height: 60px;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAFAFA;
+}
+
+.user-profile{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 5px;
+}
+
+.profile-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.profile-text{
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+}
+
+.icon-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-right: 8px;
+    color: rgba(128, 128, 128, 0.7);
+}
+
+.notifica{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 15px;
+} 
+
+.sm-gray{
+    color: gray;
+    font-size: 13px;
+}
+
+.bg-notifica{
+    background-color: #8EDAFC;
+}
+
+.icon-circle{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-circle i{
+    color: #8EDAFC;
+}
+
+.chat-search{
+    width: 100%;
+    padding: 10px 50px;
+    color: gray;
+    border: none;
+}
+
+.chat-wrapper{
+    flex-grow: 1;
+    padding-top: 7px;
+    background-color: #FAFAFA;
+}
+
+.input-wrapper{
+    position: relative;
+    color: gray;
+}
+
+.input-wrapper i{
+    position: absolute;
+    top:50%;
+    left: 15px;
+    transform: translateY(-50%)
+}
+
+.chat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    gap: 5px;
+    padding-left: 15px;
+}
+
+.chat-user{
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.name{
+    font-size: 14px;
+}
+
+.date{
+    align-self: flex-start;
+}
