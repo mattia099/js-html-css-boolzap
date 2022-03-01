@@ -42,7 +42,7 @@
 
                 <div class="chat" v-for="(el,index) in contacts" :class=" currentIndex == index ? 'active' : '' " @click="currentIndex=index">
                     <div class="chat-user">
-                        <img src="https://picsum.photos/45/45" class="profile-img">
+                        <img v-bind:src="el.avatar" class="profile-img">
                         <div>
                             <p class="profile-text"> {{ el.name }} </p>
                             <p class="sm-gray"> {{ el.messages[el.messages.length-1].text }} </p>
@@ -58,7 +58,7 @@
             <div class="chat-content_top-side">
 
                 <div class="user-profile" v-for="(contact,index) in contacts" v-if="currentIndex == index">
-                    <img src="https://picsum.photos/45/45" class="profile-img" >
+                    <img v-bind:src="contact.avatar" class="profile-img" >
                     <div>
                         <p class="profile-text">{{ contact.name }}</p>
                         <p class="sm-gray">Ultimo accesso {{ contact.messages[contact.messages.length-1].date }}</p>
