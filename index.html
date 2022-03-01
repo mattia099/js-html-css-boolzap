@@ -40,17 +40,18 @@
                     <i class="fas fa-search"></i>
                 </div>
 
-                <div class="chat" v-for="(el,index) in contacts">
+                <div class="chat" v-for="(el,index) in contacts" :class=" currentIndex == index ? 'active' : '' " @click="showChat(index)">
                     <div class="chat-user">
                         <img src="https://picsum.photos/45/45" class="profile-img">
                         <div>
-                            <p class="profile-text">{{ el.name }}</p>
-                            <p class="sm-gray">ultimo messaggio</p>
+                            <p class="profile-text"> {{ el.name }} </p>
+                            <p class="sm-gray"> {{ el.messages[el.messages.length-1].text }} </p>
                         </div>  
                     </div>        
-                    <p class="date sm-gray">28/02/2022 12:07</p>
+                    <p class="date sm-gray">{{ el.messages[el.messages.length-1].date }}</p>
                 </div>
             </div>
+        
         </div>
         
         <div class="chat-content">
@@ -69,14 +70,14 @@
                 </div>
             </div>
             <div class="message-wrapper">
-                <div class="message sent">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                    <span class="sm-gray">15/11/22 17:14</span>
+                <div v-for="(contact,index) in contacts" v-if="currentIndex==index">
+                    <div v-for="message in contact.messages" class="message"  :class="message.status=='sent' ? 'sent' : 'received' ">
+                        <p>{{message.text}}</p>
+                        <span class="sm-gray">{{message.date}}</span>
+                    </div>
                 </div>
-                <div class="message received">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                    <span class="sm-gray">15/11/22 17:14</span>
-                </div>
+                
+                
             </div>
             <div class="input-message">
                 <i class="far fa-smile"></i>

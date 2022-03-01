@@ -19,7 +19,7 @@ main{
 }
 
 .sidebar{
-    width: 450px;
+    width: 480px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -192,10 +192,11 @@ gap: 15px;
 
 .message{
     width: 300px;
-    height: 60px;
     border-radius: 10px;
     position: relative;
-    padding: 8px;
+    padding-bottom:25px;
+    padding-top:10px;
+    padding-left: 10px;
 }
 
 .message span{
@@ -206,4 +207,17 @@ gap: 15px;
 
 .message p{
     font-size: 14px;
+}
+
+.active{
+    background-color: lightgray;
+}
+
+.message.sent + .message.received,
+.message.received + .message.sent {
+    margin-top: 10px;
+}
+
+.message-wrapper > div{
+    display: contents;
 }
