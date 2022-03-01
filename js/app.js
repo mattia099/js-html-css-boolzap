@@ -86,14 +86,35 @@ const app = new Vue({
             ],
             }
         ],
-
+        
         currentIndex : 0,
+        newMessage: '',
     },
 
     methods: {
-        showChat(index,visible){
-            this.currentIndex = index;
-            visible = true;
-        }
+        respond(i){
+            this.contacts[i].messages.push({
+                date: 'data',
+                text: 'ok',
+                status : 'received'
+            })
+        },
+
+
+        writeMessage(i) {
+            if(this.newMessage !== ''){
+                this.contacts[i].messages.push({
+                    date: 'data',
+                    text: this.newMessage,
+                    status : 'sent'
+                })
+                setTimeout(() => {
+                    this.respond(i);
+                  }, 1000);
+                
+            }
+            this.newMessage = '';
+        },
+
     }
 })

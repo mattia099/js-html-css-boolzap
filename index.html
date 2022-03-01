@@ -40,7 +40,7 @@
                     <i class="fas fa-search"></i>
                 </div>
 
-                <div class="chat" v-for="(el,index) in contacts" :class=" currentIndex == index ? 'active' : '' " @click="showChat(index)">
+                <div class="chat" v-for="(el,index) in contacts" :class=" currentIndex == index ? 'active' : '' " @click="currentIndex=index">
                     <div class="chat-user">
                         <img src="https://picsum.photos/45/45" class="profile-img">
                         <div>
@@ -81,7 +81,7 @@
             </div>
             <div class="input-message">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrvi un messaggio">
+                <input type="text" placeholder="Scrvi un messaggio" @keyup.enter="writeMessage(currentIndex)" v-model="newMessage">
                 <i class="fas fa-microphone"></i>
             </div>
         </div>
