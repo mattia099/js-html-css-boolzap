@@ -56,13 +56,15 @@
         
         <div class="chat-content">
             <div class="chat-content_top-side">
-                <div class="user-profile">
+
+                <div class="user-profile" v-for="(contact,index) in contacts" v-if="currentIndex == index">
                     <img src="https://picsum.photos/45/45" class="profile-img" >
                     <div>
-                        <p class="profile-text">Mattia</p>
-                        <p class="sm-gray">Lorem ipsum dolor sit amet consectetur</p>
+                        <p class="profile-text">{{ contact.name }}</p>
+                        <p class="sm-gray">Ultimo accesso {{ contact.messages[contact.messages.length-1].date }}</p>
                     </div>
                 </div>
+
                 <div class="icon-wrapper">
                     <i class="fas fa-search"></i>
                     <i class="fas fa-paperclip"></i>

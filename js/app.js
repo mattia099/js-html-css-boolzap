@@ -110,7 +110,7 @@ const app = new Vue({
                 })
                 setTimeout(() => {
                     this.respond(i);
-                  }, 1000);
+                  }, 3000);
                 
             }
             this.newMessage = '';
