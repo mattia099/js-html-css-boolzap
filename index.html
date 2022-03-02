@@ -34,13 +34,19 @@
                 </div>
             </div>
             
+
             <div class="chat-wrapper">
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="chat-search">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" 
+                    class="chat-search" 
+                    v-model="searchName" 
+                    @keyup="chatFilter()">
+                    
                     <i class="fas fa-search"></i>
                 </div>
 
-                <div class="chat" v-for="(el,index) in contacts" :class=" currentIndex == index ? 'active' : '' " @click="currentIndex=index">
+
+                <div class="chat" v-for="(el,index) in contacts" :class=" currentIndex == index ? 'active' : '' " @click="currentIndex=index" v-if="el.visible">
                     <div class="chat-user">
                         <img v-bind:src="el.avatar" class="profile-img">
                         <div>
@@ -75,7 +81,7 @@
                 <div v-for="(contact,index) in contacts" v-if="currentIndex==index">
                     <div v-for="message in contact.messages" class="message"  :class="message.status=='sent' ? 'sent' : 'received' ">
                         <p>{{message.text}}</p>
-                        <span class="sm-gray">{{message.date}}</span>
+                        <span class="sm-gray">{{ getHours(message.date) }}</span>
                     </div>
                 </div>
                 

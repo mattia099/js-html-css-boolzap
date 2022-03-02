@@ -5,7 +5,7 @@ const app = new Vue({
             {
             name: 'Michele',
             avatar: 'img/avatar1.png',
-            visible: false,
+            visible: true,
             messages: [
             {
             date: '10/01/2020 15:30:55',
@@ -27,7 +27,7 @@ const app = new Vue({
             {
             name: 'Fabio',
             avatar: 'img/avatar2.jpg',
-            visible: false,
+            visible: true,
             messages: [
             {
             date: '20/03/2020 16:30:00',
@@ -49,7 +49,7 @@ const app = new Vue({
             {
             name: 'Samuele',
             avatar: 'img/avatar3.png',
-            visible: false,
+            visible: true,
             messages: [
             {
             date: '28/03/2020 10:10:40',
@@ -71,7 +71,7 @@ const app = new Vue({
             {
             name: 'Luisa',
             avatar: 'img/avatar4.png',
-            visible: false,
+            visible: true,
             messages: [
             {
             date: '10/01/2020 15:30:55',
@@ -89,12 +89,14 @@ const app = new Vue({
         
         currentIndex : 0,
         newMessage: '',
+        searchName: '',
     },
 
     methods: {
         respond(i){
+            const d = new Date();
             this.contacts[i].messages.push({
-                date: 'data',
+                date: `${d.getDay()}/${d.getMonth()+1}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
                 text: 'ok',
                 status : 'received'
             })
@@ -102,9 +104,10 @@ const app = new Vue({
 
 
         writeMessage(i) {
+            const d = new Date();
             if(this.newMessage !== ''){
                 this.contacts[i].messages.push({
-                    date: 'data',
+                    date: `${d.getDay()}/${d.getMonth()+1}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
                     text: this.newMessage,
                     status : 'sent'
                 })
@@ -114,7 +117,31 @@ const app = new Vue({
                 
             }
             this.newMessage = '';
+            this.searchName = '';
         },
 
+        getHours(date){
+            const ora = date.split(' ')[1];
+            return ora.substring(0,5); 
+        },
+
+        chatFilter() {
+            //input vuoto tutti i visible a true
+            if(this.searchName === "") {
+               this.contacts.forEach( el => {
+                  el.visible = true;
+               })
+            }else{
+               this.contacts.forEach( el => {
+                    const nome = el.name.toLowerCase();
+                    const nomeInput = this.searchName.toLowerCase();
+                    if(nome.includes(nomeInput)) {
+                        el.visible = true;
+                    }else{
+                        el.visible = false;
+                    }
+               });
+            }
+         },
     }
 })

@@ -77,7 +77,7 @@ main{
 
 .sm-gray{
     color: gray;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .bg-notifica{
@@ -188,15 +188,17 @@ gap: 15px;
 
 .received{
     background-color: white;
+    align-self: flex-start;
 }
 
 .message{
-    width: 300px;
+    min-width: 40px;
     border-radius: 10px;
     position: relative;
     padding-bottom:25px;
     padding-top:10px;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .message span{
@@ -214,7 +216,7 @@ gap: 15px;
 }
 
 .message.sent + .message.received,
-.message.received + .message.sent {
+.message.received + .message.sent{
     margin-top: 10px;
 }
 
@@ -222,3 +224,41 @@ gap: 15px;
     display: contents;
 }
 
+.d-flex{
+    display: flex;
+}
+
+.d-none{
+    display: none;
+}
+
+.message.received + .message.sent::before, .message.sent:first-child::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid #D5F9BA;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top:0;
+    left:100%;
+}
+
+.message.sent + .message.received::before, .message.received:first-child::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid white;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 100%;
+}
+
+
+.message.sent:first-child, .message.received + .message.sent{
+    border-top-right-radius: 0;
+}
+
+.message.received:first-child, .message.sent + .message.received{
+    border-top-left-radius: 0;
+}
