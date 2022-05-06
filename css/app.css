@@ -195,20 +195,20 @@ gap: 15px;
     min-width: 40px;
     border-radius: 10px;
     position: relative;
-    padding-bottom:25px;
-    padding-top:10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
 }
 
 .message span{
-    position: absolute;
-    bottom: 4px;
-    right: 5px;
+    align-self: flex-end;
+    padding: 5px;
 }
 
 .message p{
     font-size: 14px;
+    align-self: flex-start;
+    margin-right: 40px;
 }
 
 .active{
@@ -222,14 +222,6 @@ gap: 15px;
 
 .message-wrapper > div{
     display: contents;
-}
-
-.d-flex{
-    display: flex;
-}
-
-.d-none{
-    display: none;
 }
 
 .message.received + .message.sent::before, .message.sent:first-child::before{
@@ -261,4 +253,43 @@ gap: 15px;
 
 .message.received:first-child, .message.sent + .message.received{
     border-top-left-radius: 0;
+}
+
+.drop-down-menu{
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px grey;
+    position: absolute;
+    width: 140px;
+    border: 1px solid grey;
+    display: block;
+    z-index: 999;
+}
+.message.received .drop-down-menu{
+    top:15px;
+    left: 90%;
+}
+.message.sent .drop-down-menu{
+    top:10px;
+    right: 90%;
+}
+
+
+
+ul{
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.message i{
+    align-self: flex-end;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.d-block{
+    display: block;
+}
+.display-none{
+    display: none;
 }
